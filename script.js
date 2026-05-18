@@ -17,18 +17,10 @@ scenes.forEach((_, index) => {
 
 const dots = Array.from(document.querySelectorAll('.dot'));
 
-function updateParallaxLayers() {
-  scenes.forEach((scene, index) => {
-    const distance = index - currentIndex;
-    scene.style.setProperty('--parallax-x', distance * 100);
-  });
-}
-
 function updateUI() {
   prevBtn.disabled = currentIndex === 0;
   nextBtn.disabled = currentIndex === scenes.length - 1;
   dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
-  updateParallaxLayers();
 }
 
 function activateScene(nextIndex) {

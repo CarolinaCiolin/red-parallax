@@ -1,5 +1,4 @@
 :root {
-  --cream: #fff8ec;
   --ink: #20323d;
   --text: #294052;
   --card: rgba(255, 255, 255, 0.65);
@@ -44,7 +43,6 @@ button {
   opacity: 0;
   pointer-events: none;
   transition: opacity 220ms ease;
-  --parallax-x: 0;
 }
 
 .scene.active,
@@ -217,18 +215,6 @@ p {
   color: white;
   font-weight: 700;
   box-shadow: 0 14px 32px rgba(8, 75, 78, .24);
-}
-
-.nav-arrows {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  display: flex;
-  gap: .75rem;
-  z-index: 20;
-}
-
-.nav-arrows button {
   width: 54px;
   height: 54px;
   font-size: 1.5rem;
@@ -239,6 +225,15 @@ p {
   padding-bottom: 3px; /* Compensação visual para a seta */
   line-height: 1;
   font-family: Arial, sans-serif;
+}
+
+.nav-arrows {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  gap: .75rem;
+  z-index: 20;
 }
 
 .nav-arrows button:disabled {
@@ -332,9 +327,6 @@ p {
     background-size: auto 75vh;
   }
 
-  .creator-panel {
-    grid-template-columns: 1fr;
-  }
 }
 
 .all-characters {
