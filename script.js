@@ -2,12 +2,9 @@ const scenes = Array.from(document.querySelectorAll('.scene'));
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const dotsBox = document.getElementById('progress-dots');
-const generateBtn = document.getElementById('generate-btn');
-const result = document.getElementById('result');
 
 let currentIndex = 0;
 let isAnimating = false;
-let direction = 1;
 
 scenes.forEach((_, index) => {
   const dot = document.createElement('button');
@@ -46,7 +43,6 @@ function goTo(nextIndex) {
   if (nextIndex === currentIndex || isAnimating) return;
 
   isAnimating = true;
-  direction = nextIndex > currentIndex ? 1 : -1;
 
   const oldIndex = currentIndex;
   const oldScene = scenes[oldIndex];
@@ -93,17 +89,6 @@ window.addEventListener('touchend', (event) => {
   const diff = touchStartY - touchEndY;
   if (Math.abs(diff) > 45) goTo(currentIndex + (diff > 0 ? 1 : -1));
 }, { passive: true });
-
-if (generateBtn && result) {
-  generateBtn.addEventListener('click', () => {
-    const emotion = document.getElementById('emotion').value.toLowerCase();
-    const outfit = document.getElementById('outfit').value.toLowerCase();
-    const place = document.getElementById('place').value.toLowerCase();
-    const accessory = document.getElementById('accessory').value.toLowerCase();
-
-    result.textContent = `Seu personagem é ${emotion}, vive em ${place}, usa ${outfit} e leva ${accessory}. Pronto para uma nova aventura!`;
-  });
-}
 
 activateScene(currentIndex);
 updateUI();
